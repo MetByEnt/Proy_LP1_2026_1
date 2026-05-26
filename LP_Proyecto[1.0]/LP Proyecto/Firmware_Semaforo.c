@@ -122,5 +122,4 @@ void RegistrarCambio(enum EstadoSemaforo estado){
     fclose(out);
 
     printf("%s   ", buffer);
-    printf("%s\n",textoEstado(estado));
 }
