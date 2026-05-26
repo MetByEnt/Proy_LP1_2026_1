@@ -162,20 +162,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
             playbmp =(HBITMAP)LoadImage(NULL, "Sprites\\play.bmp",IMAGE_BITMAP, 44, 44, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
             stopbmp =(HBITMAP)LoadImage(NULL, "Sprites\\stop.bmp",IMAGE_BITMAP, 44, 44, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
             break;
-        /*case WM_ERASEBKGND:
-            HDC hdc = (HDC)wParam;
-            if (!fondo) return DefWindowProc(hwnd, uMsg, wParam, lParam);
-            BITMAP bm; GetObject(fondo, sizeof(bm), &bm);
-            HDC mem = CreateCompatibleDC(hdc);
-            HBITMAP old = (HBITMAP)SelectObject(mem, fondo);
-            RECT rc; GetClientRect(hwnd, &rc);
-
-            SetStretchBltMode(hdc, HALFTONE);
-            StretchBlt(hdc, 0, 0, rc.right, rc.bottom, mem, 0, 0, bm.bmWidth, bm.bmHeight, SRCCOPY);
-            SelectObject(mem, old);
-            DeleteDC(mem);
-            return 1;
-        break;*/
 	    case WM_DESTROY:
 	        PostQuitMessage(0);
 	        return 0;
@@ -263,7 +249,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
             }else{
                 float sizeRatio = (float)vSize/600;
 
-                printf("%d  %f \n",vSize,sizeRatio);
                 for(int i=0;i<NGE;i++){
                     SetWindowPos(GUIelements[i],NULL,guiRects[i].left*sizeRatio,guiRects[i].top*sizeRatio,(guiRects[i].right-guiRects[i].left)*sizeRatio,(guiRects[i].bottom-guiRects[i].top)*sizeRatio,SWP_NOZORDER);
                 }
